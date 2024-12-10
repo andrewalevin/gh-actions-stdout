@@ -1,0 +1,40 @@
+name: 💎 tpk-runner
+run-name: 🚀 tpk-runner (${{ github.actor }})🚀
+on:
+  #schedule:
+  #  - cron: '*/10 * * * *'
+  push:
+    branches:
+      - main
+  release:
+    types: [published]
+    
+permissions:
+  contents: write
+jobs:
+  tpk-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 👋 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: 🖼 CLI CHECK
+        run: ls -lha
+      
+      - name: 📡 Listening
+        run: python timekiller.py 10
+
+      - name: 🖼 CLI CHECK
+        run: ls -lha
+      
+
+
+
+
+
+  
