@@ -7,7 +7,7 @@ def run_subprocess(seconds):
     print('🚀 Subprocess.call:')
 
     # Запуск main.py как отдельного процесса
-    process = subprocess.Popen(['telepostkeeper'])
+    process = subprocess.Popen(['python', 'timer.py'])
 
     # Пауза на указанное количество секунд
     time.sleep(seconds)
