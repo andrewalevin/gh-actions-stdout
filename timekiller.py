@@ -1,10 +1,17 @@
 import subprocess
 import time
 import argparse
+import logging
 
+# Настройка логгера
+logging.basicConfig(
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+logger = logging.getLogger(__name__)
 
 def run_subprocess(seconds):
-    print('🚀 Subprocess.call:')
+    logger.info('🚀 Subprocess.call started')
 
     # Запуск main.py как отдельного процесса
     process = subprocess.Popen(['python', 'timer.py'])
@@ -12,11 +19,10 @@ def run_subprocess(seconds):
     # Пауза на указанное количество секунд
     time.sleep(seconds)
 
-    print('🔫 Subprocess.kill: ')
+    logger.info('🔫 Subprocess.kill: killing the process')
 
     # Завершение процесса
     process.kill()
-
 
 def main():
     # Парсер аргументов командной строки
